@@ -1,0 +1,18 @@
+node{
+     def mavhome=tool name: 'maven3.6.3', type: 'maven'
+    stage('preperation'){
+        git 'https://github.com/shrey-jain/maven-jenkins'
+    }
+    stage('compile'){
+    
+       sh "${mavhome}/bin/mvn compile"
+     }
+     stage('test'){
+    
+       sh "${mavhome}/bin/mvn test"
+     }
+ stage('package'){
+    
+       sh "${mavhome}/bin/mvn package"
+     }
+}
