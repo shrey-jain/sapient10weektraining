@@ -1,0 +1,29 @@
+create 3 folder db , db1 , db2
+// this command will start the server for mongo db and has to be kept running
+mongod --dbpath "C:\Program Files\MongoDB\Server\4.2\data\db" --port 27017 --replSet Replica1
+// in new cmd , connect to port 27017
+mongo --port 27017
+//create a database shop
+use shop
+//create a collection
+db.product.insert({name:"book",price:"12.29"})
+//now initiate replica set
+rs.initiate()
+//check status
+rs.status()
+//it will show it as primary
+//now in seperate cmd
+mongod --dbpath "C:\Program Files\MongoDB\Server\4.2\data\db1" --port 27018 --replSet Replica1
+//now in seperate cmd
+mongod --dbpath "C:\Program Files\MongoDB\Server\4.2\data\db2" --port 27019 --replSet Replica1
+//now in the port 27017 window we will now add secondary dbs
+rs.add("localhost:27018")
+rs.add("localhost:27019")
+rs.status()
+//now in seperate cmd windows for slaves that is secondary dbs we have to give them  access to write from the primary db
+rs.slaveOk()
+//now we can process the read queries in the seconday db
+use shop
+db.products.find().pretty()
+
+
