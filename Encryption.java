@@ -37,20 +37,29 @@ class Encryption{
 
     public static void main (String[] args)  
     { 
-          
-       int a[]=new int[200];
+      
+       
        int j=0;
-       sieve();
-       for(int i=65;i<91;i++){
-           a[i]=primes.get(j);
-           a[i+32]=primes.get(j);
+      
+       sieve(); 
+       char x='A';
+      
+       String a[]=new String[26];
+       for(int i=0;i<26;i++){
+           
+           a[i]=""+x+"-"+Integer.toHexString(primes.get(j));
+           x++;
            j++;
+           
        }
        Scanner s=new Scanner(System.in);
        String str=s.nextLine();
+     
+     String st=str.toUpperCase();
        String ans=new String();
        for(int i=0;i<str.length();i++){
-           ans=ans+Integer.toHexString(a[str.charAt(i)]);
+          int index=st.charAt(i)-65;
+           ans=ans+a[index].substring(2);
        
            
        }
