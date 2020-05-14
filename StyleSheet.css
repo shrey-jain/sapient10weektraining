@@ -4,7 +4,7 @@
 }
 
 
-@media (width:786px) and (height:600px) {
+@media (min-width: 301px) {
     body {
         color:blue;
         font-size:36pt;
@@ -12,14 +12,14 @@
    
     }
 }
-@media (width:300px) and (height:350px) {
+@media (min-width: 101px) and (max-width: 300px) {
     body {
         color: red;
         font-size: 24pt;
         font-family: Helvetica;
     }
 }
-@media (width:100px) and (height:100px) {
+@media (max-width: 100px) {
     body {
         color: purple;
         font-size: 18pt;
