@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="mobile" class="com.sapient.SpringAssingment.Mobile" autowire="byType"></bean>
+       <bean id="camera" class="com.sapient.SpringAssingment.Camera"></bean>
+          <bean id="screen" class="com.sapient.SpringAssingment.Screen"></bean>
+             <bean id="speaker" class="com.sapient.SpringAssingment.Speaker"></bean>
+
+</beans>
