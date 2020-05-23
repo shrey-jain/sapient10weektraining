@@ -9,7 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App {
 	public static void main(String[] args) {
-		ApplicationContext factory = new ClassPathXmlApplicationContext("mobileContext.xml");
+		ApplicationContext factory = new ClassPathXmlApplicationContext(
+				"mobileContext.xml", "cameraContext.xml", "screenContext.xml",
+				"speakerContext.xml");
 		Mobile mobile = (Mobile) factory.getBean("mobile");
 
 		mobile.code();
